@@ -6,8 +6,8 @@
 # http://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
-
-
+from selenium import webdriver
+from scrapy.http import HtmlResponse
 class WeiboSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
@@ -54,3 +54,25 @@ class WeiboSpiderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+# class JavaScriptMiddleware(object):
+#
+#   def process_request(self, request, spider):
+#       if spider.name == "tts2":
+#           driver = webdriver.PhantomJS() #使用PhantomJS浏览器
+#           driver.get(request.url)
+#           body=driver.page_source   #第一页html储存在html字符串里
+#           print ("访问"+request.url)
+#           return HtmlResponse(driver.current_url, body=body, encoding='utf-8', request=request)
+#       else:
+#           return
+# class JavaScriptMiddleware(object):
+#
+#   def process_request(self, request, spider):
+#       if spider.name == "tts":
+#           driver =webdriver.Chrome("D:/chromedriver")
+#           driver.get(request.url)
+#           body=driver.page_source   #第一页html储存在html字符串里
+#           print ("访问"+request.url)
+#           return HtmlResponse(driver.current_url, body=body, encoding='utf-8', request=request)
+#       else:
+#           return

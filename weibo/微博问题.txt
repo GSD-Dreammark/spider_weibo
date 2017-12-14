@@ -1,0 +1,5 @@
+开始微博的首页死活爬不到
+之后发现他是跳转了两次
+使用splash，phantoJS，ChromeDriver都抓不到
+后来发现你第二次跳转是需要有个延迟时间，这样就可以抓到了
+故splash，phantoJs，ChromeDriver都要加延迟时间

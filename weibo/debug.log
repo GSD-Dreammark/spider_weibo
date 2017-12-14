@@ -1,0 +1,3 @@
+[1213/200559.498:ERROR:process_reader_win.cc(123)] NtOpenThread: {无法访问} 过程已请求访问一对象，但未给访问权限。  (0xc0000022)
+[1213/200559.499:ERROR:exception_snapshot_win.cc(87)] thread ID 5620 not found in process
+[1213/200559.499:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed

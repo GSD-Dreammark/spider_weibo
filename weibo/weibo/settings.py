@@ -13,16 +13,25 @@ BOT_NAME = 'weibo'
 
 SPIDER_MODULES = ['weibo.spiders']
 NEWSPIDER_MODULE = 'weibo.spiders'
-
+SPLASH_URL = 'http://192.168.99.100:8050'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'weibo (+http://www.yourdomain.com)'
-
+USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36'
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy_splash.SplashCookiesMiddleware': 723,
+    'scrapy_splash.SplashMiddleware': 725,
+    'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
+    # 'weibo.middlewares.JavaScriptMiddleware': 500,
+}
+# DOWNLOAD_TIMEOUT=180 下载超时时间
+DNS_TIMEOUT=90 #DNS超时时间
+# COOKIES_ENABLED=True
+# COOKIES_DEBUG=True
+DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'  # 必须要有
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
-
+HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'  # 必须要有
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
-
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
